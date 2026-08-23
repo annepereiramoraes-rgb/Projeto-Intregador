@@ -1,1 +1,471 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projeto Integrador: automação e aquecimento sustentável da piscina térmica do CEP usando óptica aplicada e sensores." />
+  <title>AquaSolar CEP — Aquecimento Sustentável da Piscina</title>
+
+  <!-- Folha de estilos -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Ícone da aba (PERSONALIZAR: troque por um favicon próprio, se quiser) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌞</text></svg>" />
+</head>
+<body>
+
+  <!-- =========================================================
+       CABEÇALHO + NAVEGAÇÃO (fixo no topo)
+       ========================================================= -->
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#inicio" class="logo" aria-label="Ir para o início do site">
+        <span class="logo-icon" aria-hidden="true">🌞💧</span>
+        <span class="logo-text">AquaSolar <small>CEP</small></span>
+      </a>
+
+      <!-- Botão hambúrguer (mobile) -->
+      <button class="menu-toggle" id="menuToggle"
+              aria-label="Abrir menu de navegação"
+              aria-expanded="false"
+              aria-controls="menuPrincipal">
+        <span class="hamburger" aria-hidden="true"></span>
+      </button>
+
+      <nav id="menuPrincipal" class="main-nav" aria-label="Navegação principal">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#problema">O Problema</a></li>
+          <li><a href="#solucao">A Solução</a></li>
+          <li><a href="#automacao">Automação</a></li>
+          <li><a href="#simulador">Simulador</a></li>
+          <li><a href="#acessibilidade">Acessibilidade</a></li>
+          <li><a href="#equipe">Equipe</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       CONTEÚDO PRINCIPAL
+       ========================================================= -->
+  <main id="main">
+
+    <!-- ============ 1. INÍCIO ============ -->
+    <section id="inicio" class="hero" aria-labelledby="titulo-inicio">
+      <div class="container hero-inner">
+        <h1 id="titulo-inicio">Aquecimento sustentável da piscina do CEP</h1>
+        <p class="lead">
+          <!-- PERSONALIZAR: resumo do projeto -->
+          Um projeto integrador que une <strong>óptica aplicada</strong>,
+          <strong>automação com sensores</strong> e <strong>sustentabilidade</strong>
+          para tornar o aquecimento da piscina térmica do Centro Educacional Piscina (CEP)
+          mais eficiente, econômico e inclusivo.
+        </p>
+        <div class="hero-actions">
+          <a href="#solucao" class="btn btn-primary">Conheça a solução</a>
+          <a href="#simulador" class="btn btn-secondary">Testar o simulador</a>
+        </div>
+
+        <!-- PERSONALIZAR: integrantes resumidos -->
+        <div class="team-preview" aria-label="Integrantes da equipe">
+          <h2 class="sr-only">Integrantes</h2>
+          <ul class="team-list">
+            <li><strong>Ana Silva</strong> — Pesquisa científica</li>
+            <li><strong>Bruno Costa</strong> — Automação e sensores</li>
+            <li><strong>Carla Mendes</strong> — Design e acessibilidade</li>
+            <li><strong>Davi Rocha</strong> — Simulador e programação</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. O PROBLEMA ============ -->
+    <section id="problema" class="section" aria-labelledby="titulo-problema">
+      <div class="container">
+        <h2 id="titulo-problema">O Problema</h2>
+        <p>
+          Aquecer uma piscina escolar parece simples, mas esconde desafios reais:
+        </p>
+        <div class="cards">
+          <article class="card">
+            <h3>⚡ Alto consumo de energia</h3>
+            <p>Aquecedores elétricos convencionais elevam a conta de luz da escola,
+               desviando recursos que poderiam ser usados em materiais pedagógicos.</p>
+          </article>
+          <article class="card">
+            <h3>💸 Custo operacional</h3>
+            <p>Manter a água em temperatura confortável (entre 28°C e 30°C) durante
+               o ano todo exige um sistema eficiente e de baixa manutenção.</p>
+          </article>
+          <article class="card">
+            <h3>🌱 Impacto ambiental</h3>
+            <p>Fontes não renováveis aumentam a pegada de carbono da escola,
+               indo na contramão da educação para a sustentabilidade.</p>
+          </article>
+        </div>
+        <p>
+          Nossa proposta é usar a <strong>luz do sol</strong> — abundante no Brasil —
+          como fonte principal de energia, combinada com automação inteligente para
+          evitar desperdícios.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 3. A SOLUÇÃO — ÓPTICA APLICADA ============ -->
+    <section id="solucao" class="section section-alt" aria-labelledby="titulo-solucao">
+      <div class="container">
+        <h2 id="titulo-solucao">A Solução — Óptica Aplicada</h2>
+        <p>
+          Os coletores solares transformam <strong>luz em calor</strong> usando
+          princípios da óptica. Entender como a luz interage com os materiais é a
+          chave para projetar placas mais eficientes.
+        </p>
+
+        <!-- Accordion científico -->
+        <div class="accordion" role="region" aria-label="Conceitos de óptica">
+
+          <details class="accordion-item" open>
+            <summary>
+              <span>Absorção, reflexão e refração</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="accordion-content">
+              <p>
+                Quando a luz atinge uma superfície, três coisas podem acontecer:
+              </p>
+              <ul>
+                <li><strong>Absorção:</strong> a energia luminosa é convertida em calor
+                    (é o que queremos nos coletores).</li>
+                <li><strong>Reflexão:</strong> a luz “quica” e volta — superfícies
+                    claras e espelhadas refletem mais.</li>
+                <li><strong>Refração:</strong> a luz muda de direção ao passar de um
+                    meio para outro (ex: do ar para a água ou para o vidro do coletor).</li>
+              </ul>
+              <p>
+                Por isso, as placas dos coletores são <strong>pretas ou azul-escuras</strong>:
+                cores escuras absorvem a maior parte do espectro visível e convertem em calor.
+              </p>
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary>
+              <span>🎨 O Disco de Newton e as cores da luz</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="accordion-content">
+              <p>
+                Isaac Newton mostrou, com seu famoso <strong>disco colorido</strong>,
+                que a luz branca é composta por várias cores (o espectro visível).
+                Quando o disco gira rápido, as cores se “somam” e vemos branco.
+              </p>
+              <p>
+                Na prática dos coletores solares, pensamos ao contrário: queremos que
+                a superfície <strong>absorva todas as cores</strong> do espectro, e não
+                que reflita nenhuma. É por isso que o preto — que “soma” todas as cores —
+                é a cor ideal para as placas absorvedoras.
+              </p>
+              <!-- Ilustração do Disco de Newton em SVG -->
+              <figure class="newton-disc" aria-label="Representação do Disco de Newton">
+                <svg viewBox="0 0 200 200" role="img" aria-labelledby="titulo-newton">
+                  <title id="titulo-newton">Disco de Newton com 7 cores do espectro</title>
+                  <!-- 7 fatias coloridas -->
+                  <g transform="translate(100,100)">
+                    <path d="M0,0 L80,0 A80,80 0 0,1 61.6,51.4 Z" fill="#ff0000"/>
+                    <path d="M0,0 L61.6,51.4 A80,80 0 0,1 0,80 Z" fill="#ff7f00"/>
+                    <path d="M0,0 L0,80 A80,80 0 0,1 -61.6,51.4 Z" fill="#ffff00"/>
+                    <path d="M0,0 L-61.6,51.4 A80,80 0 0,1 -80,0 Z" fill="#00ff00"/>
+                    <path d="M0,0 L-80,0 A80,80 0 0,1 -61.6,-51.4 Z" fill="#0000ff"/>
+                    <path d="M0,0 L-61.6,-51.4 A80,80 0 0,1 0,-80 Z" fill="#4b0082"/>
+                    <path d="M0,0 L0,-80 A80,80 0 0,1 61.6,-51.4 Z" fill="#9400d3"/>
+                    <path d="M0,0 L61.6,-51.4 A80,80 0 0,1 80,0 Z" fill="#ff0000"/>
+                  </g>
+                  <circle cx="100" cy="100" r="80" fill="none" stroke="#222" stroke-width="2"/>
+                </svg>
+                <figcaption>As 7 cores do espectro visível — quando absorvidas, viram calor.</figcaption>
+              </figure>
+            </div>
+          </details>
+
+          <details class="accordion-item">
+            <summary>
+              <span>📷 A Câmara Escura e o caminho da luz</span>
+              <span class="acc-icon" aria-hidden="true">+</span>
+            </summary>
+            <div class="accordion-content">
+              <p>
+                A <strong>câmara escura</strong> é um dos primeiros experimentos que
+                mostraram que a luz viaja em linha reta: ao entrar por um pequeno orifício,
+                ela projeta uma imagem invertida na parede oposta.
+              </p>
+              <p>
+                No coletor solar, usamos uma lógica parecida: a luz entra por uma tampa
+                de vidro (refratando ao passar do ar para o vidro), atinge a superfície
+                escura absorvedora e fica “presa” dentro da caixa — o vidro impede que o
+                calor escape facilmente, criando um efeito estufa controlado.
+              </p>
+              <p>
+                Assim, a escolha dos materiais (vidro transparente, caixa isolada,
+                superfície escura) é diretamente inspirada nesses fenômenos ópticos.
+              </p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. AUTOMAÇÃO ============ -->
+    <section id="automacao" class="section" aria-labelledby="titulo-automacao">
+      <div class="container">
+        <h2 id="titulo-automacao">Automação — Sensores e Atuadores</h2>
+        <p>
+          Para que o sistema funcione sozinho, usamos um <strong>microcontrolador</strong>
+          (como um Arduino) que lê sensores e aciona atuadores conforme a necessidade.
+        </p>
+
+        <div class="flow-wrapper">
+          <!-- Diagrama SVG do fluxo -->
+          <svg class="flow-diagram" viewBox="0 0 800 320" role="img"
+               aria-labelledby="titulo-flow">
+            <title id="titulo-flow">Fluxograma do sistema de automação</title>
+
+            <!-- Caixas -->
+            <g class="flow-node">
+              <rect x="20" y="120" width="140" height="80" rx="10" fill="#ffb347" stroke="#333" stroke-width="2"/>
+              <text x="90" y="155" text-anchor="middle" font-weight="bold">Sol / Radiação</text>
+              <text x="90" y="178" text-anchor="middle">Fonte de energia</text>
+            </g>
+
+            <g class="flow-node">
+              <rect x="200" y="120" width="140" height="80" rx="10" fill="#4fc3f7" stroke="#333" stroke-width="2"/>
+              <text x="270" y="155" text-anchor="middle" font-weight="bold">Sensor de Temp.</text>
+              <text x="270" y="178" text-anchor="middle">Lê a água</text>
+            </g>
+
+            <g class="flow-node">
+              <rect x="380" y="120" width="140" height="80" rx="10" fill="#81c784" stroke="#333" stroke-width="2"/>
+              <text x="450" y="155" text-anchor="middle" font-weight="bold">Controlador</text>
+              <text x="450" y="178" text-anchor="middle">(Arduino)</text>
+            </g>
+
+            <g class="flow-node">
+              <rect x="560" y="60" width="140" height="60" rx="10" fill="#e57373" stroke="#333" stroke-width="2"/>
+              <text x="630" y="85" text-anchor="middle" font-weight="bold">Bomba</text>
+              <text x="630" y="105" text-anchor="middle">Circula água</text>
+            </g>
+
+            <g class="flow-node">
+              <rect x="560" y="200" width="140" height="60" rx="10" fill="#ba68c8" stroke="#333" stroke-width="2"/>
+              <text x="630" y="225" text-anchor="middle" font-weight="bold">Válvula</text>
+              <text x="630" y="245" text-anchor="middle">Controla fluxo</text>
+            </g>
+
+            <!-- Setas -->
+            <defs>
+              <marker id="seta" viewBox="0 0 10 10" refX="9" refY="5"
+                      markerWidth="6" markerHeight="6" orient="auto">
+                <path d="M0,0 L10,5 L0,10 z" fill="#333"/>
+              </marker>
+            </defs>
+            <line x1="160" y1="160" x2="195" y2="160" stroke="#333" stroke-width="2" marker-end="url(#seta)"/>
+            <line x1="340" y1="160" x2="375" y2="160" stroke="#333" stroke-width="2" marker-end="url(#seta)"/>
+            <line x1="520" y1="140" x2="555" y2="100" stroke="#333" stroke-width="2" marker-end="url(#seta)"/>
+            <line x1="520" y1="180" x2="555" y2="220" stroke="#333" stroke-width="2" marker-end="url(#seta)"/>
+          </svg>
+        </div>
+
+        <div class="steps">
+          <ol>
+            <li><strong>Sensores</strong> de temperatura (ex: DS18B20) leem a água da piscina em tempo real.</li>
+            <li>O <strong>controlador</strong> compara a temperatura medida com a desejada (ex: 29°C).</li>
+            <li>Se estiver frio, ele <strong>liga a bomba</strong> para circular a água pelos coletores.</li>
+            <li>Se estiver quente o suficiente, <strong>desliga a bomba</strong> e fecha a válvula de bypass.</li>
+            <li>Um <strong>sensor de luminosidade</strong> pode desativar o sistema à noite, economizando energia.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. SIMULADOR INTERATIVO ============ -->
+    <section id="simulador" class="section section-alt" aria-labelledby="titulo-simulador">
+      <div class="container">
+        <h2 id="titulo-simulador">Simulador Interativo</h2>
+        <p>
+          Ajuste os controles abaixo para ver como o sistema reage em tempo real.
+          A temperatura da água é estimada com base na radiação solar e na temperatura ambiente.
+        </p>
+
+        <div class="simulator" aria-live="polite">
+          <div class="sim-controls">
+            <label for="radSlider">
+              ☀️ Radiação solar: <span id="radValue">70</span>%
+            </label>
+            <input type="range" id="radSlider" min="0" max="100" value="70"
+                   aria-label="Controle de radiação solar em porcentagem" />
+
+            <label for="ambSlider">
+              🌡️ Temperatura ambiente: <span id="ambValue">25</span>°C
+            </label>
+            <input type="range" id="ambSlider" min="10" max="40" value="25"
+                   aria-label="Controle de temperatura ambiente em graus Celsius" />
+
+            <label for="targetSlider">
+              🎯 Temperatura desejada: <span id="targetValue">29</span>°C
+            </label>
+            <input type="range" id="targetSlider" min="20" max="35" value="29"
+                   aria-label="Controle de temperatura desejada da água" />
+          </div>
+
+          <div class="sim-display">
+            <div class="pool" id="poolVisual" aria-hidden="true">
+              <div class="water" id="waterLevel"></div>
+              <div class="bubbles" id="bubbles"></div>
+            </div>
+            <div class="sim-readout">
+              <p class="temp-big">
+                Temperatura estimada da água:
+                <strong id="waterTemp">--</strong> °C
+              </p>
+              <p class="status" id="statusText">Aguardando dados...</p>
+              <p class="atuador" id="atuador">
+                <span class="atuador-icon" id="atuadorIcon">⚪</span>
+                Bomba: <strong id="atuadorState">desligada</strong>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <p class="sim-note">
+          <em>Modelo simplificado:</em> T<sub>água</sub> ≈ T<sub>amb</sub> + (radiação × 0,15).
+          Em um projeto real, o modelo consideraria isolamento térmico, perda noturna,
+          vazão da bomba e inércia do sistema.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 6. ACESSIBILIDADE E IMPACTO SOCIAL ============ -->
+    <section id="acessibilidade" class="section" aria-labelledby="titulo-acess">
+      <div class="container">
+        <h2 id="titulo-acess">Acessibilidade e Impacto Social</h2>
+
+        <h3>🌐 Acessibilidade deste site</h3>
+        <ul class="a11y-list">
+          <li><strong>HTML semântico:</strong> usamos <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>,
+              <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code> e <code>&lt;footer&gt;</code>
+              para que leitores de tela entendam a estrutura.</li>
+          <li><strong>Imagens com <code>alt</code>:</strong> toda imagem e SVG possui descrição textual.</li>
+          <li><strong>Contraste WCAG AA:</strong> a paleta foi testada para garantir leitura confortável.</li>
+          <li><strong>Navegação por teclado:</strong> todos os links, botões e controles são acessíveis com <kbd>Tab</kbd> e <kbd>Enter</kbd>.</li>
+          <li><strong>Ajuste de fonte:</strong> o botão no canto inferior permite aumentar/diminuir o texto.</li>
+          <li><strong>Libras:</strong> o widget <strong>VLibras</strong> (oficial do governo federal) está
+              integrado no canto da tela para traduzir o conteúdo para Língua Brasileira de Sinais.</li>
+        </ul>
+
+        <h3>🤝 Impacto na comunidade escolar</h3>
+        <p>
+          Além de economizar energia, o projeto serve como <strong>ferramenta pedagógica</strong>:
+          alunos podem acompanhar em tempo real (pelo simulador ou por um painel na escola)
+          quanto de energia está sendo economizada. A proposta também prevê
+          <strong>oficinas abertas à comunidade</strong> sobre sustentabilidade,
+          reforçando a ideia de que tecnologia e inclusão caminham juntas.
+        </p>
+
+        <h3>💡 Diferencial inovador</h3>
+        <p>
+          Nosso sistema prevê o <strong>reaproveitamento de calor residual</strong>
+          (usando trocadores de calor nas saídas de água) e a integração com
+          <strong>painéis fotovoltaicos</strong> para alimentar os sensores e o controlador,
+          tornando o sistema praticamente autônomo. Os coletores podem ser construídos
+          com <strong>materiais reciclados</strong> (garrafas PET e caixas de leite),
+          reduzindo custos e incentivando a cultura maker na escola.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============ 7. SOBRE A EQUIPE ============ -->
+    <section id="equipe" class="section section-alt" aria-labelledby="titulo-equipe">
+      <div class="container">
+        <h2 id="titulo-equipe">Sobre a Equipe</h2>
+
+        <!-- PERSONALIZAR: trocar nomes, fotos e funções -->
+        <div class="team-grid">
+          <article class="member">
+            <div class="member-photo" aria-hidden="true">👩🏽</div>
+            <h3>Ana Silva</h3>
+            <p>Pesquisa científica — fundamentação teórica em óptica e termodinâmica.</p>
+          </article>
+          <article class="member">
+            <div class="member-photo" aria-hidden="true">👨🏻</div>
+            <h3>Bruno Costa</h3>
+            <p>Automação — programação do microcontrolador e integração de sensores.</p>
+          </article>
+          <article class="member">
+            <div class="member-photo" aria-hidden="true">👩🏼</div>
+            <h3>Carla Mendes</h3>
+            <p>Design e acessibilidade — interface, paleta de cores e recursos de inclusão.</p>
+          </article>
+          <article class="member">
+            <div class="member-photo" aria-hidden="true">👨🏾</div>
+            <h3>Davi Rocha</h3>
+            <p>Simulador — desenvolvimento do modelo interativo em JavaScript.</p>
+          </article>
+        </div>
+
+        <h3>📚 Referências</h3>
+        <ul class="refs">
+          <li>BRASIL. Ministério da Educação. <em>Parâmetros Curriculares Nacionais — Ciências</em>.</li>
+          <li>HEWITT, Paul G. <em>Física Conceitual</em>. Bookman, 2015.</li>
+          <li>GOVERNO FEDERAL. <em>VLibras — Tradução para Libras</em>. Disponível em: vlibras.gov.br.</li>
+          <li>W3C. <em>Web Content Accessibility Guidelines (WCAG) 2.1</em>.</li>
+          <!-- PERSONALIZAR: adicione livros, sites e artigos usados -->
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       RODAPÉ
+       ========================================================= -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>
+        © 2026 — Projeto Integrador CEP · AquaSolar · Feito com 💧☀️ pela equipe escolar.
+      </p>
+      <p>
+        <a href="#inicio">Voltar ao topo ↑</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- =========================================================
+       BARRA DE ACESSIBILIDADE (fixa)
+       ========================================================= -->
+  <div class="a11y-bar" role="toolbar" aria-label="Controles de acessibilidade">
+    <button id="fontMinus" aria-label="Diminuir tamanho da fonte" title="Diminuir fonte">A−</button>
+    <button id="fontPlus"  aria-label="Aumentar tamanho da fonte"  title="Aumentar fonte">A+</button>
+    <button id="fontReset" aria-label="Restaurar tamanho padrão da fonte" title="Fonte padrão">A</button>
+  </div>
+
+  <!-- =========================================================
+       WIDGET VLIBRAS (oficial do governo federal)
+       ========================================================= -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    // Inicializa o VLibras assim que o script carrega
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <!-- Script principal do site -->
+  <script src="script.js"></script>
+</body>
+</html>
