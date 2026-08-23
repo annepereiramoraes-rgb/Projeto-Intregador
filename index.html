@@ -72,10 +72,10 @@
         <div class="team-preview" aria-label="Integrantes da equipe">
           <h2 class="sr-only">Integrantes</h2>
           <ul class="team-list">
-            <li><strong>Ana Silva</strong> — Pesquisa científica</li>
-            <li><strong>Bruno Costa</strong> — Automação e sensores</li>
-            <li><strong>Carla Mendes</strong> — Design e acessibilidade</li>
-            <li><strong>Davi Rocha</strong> — Simulador e programação</li>
+            <li><strong>Carolina Coradi</strong> — Pesquisa científica</li>
+            <li><strong>Fernanda Rodrigues</strong> — Automação e sensores</li>
+            <li><strong>Ana Lacerda</strong> — Design e acessibilidade</li>
+            <li><strong>Anne Moraes</strong> — Simulador e programação</li>
           </ul>
         </div>
       </div>
@@ -152,6 +152,9 @@
 
           <details class="accordion-item">
             <summary>
+        <!-- DISCO DE NEWTON INTERATIVO -->
+          <details class="accordion-item">
+            <summary>
               <span>🎨 O Disco de Newton e as cores da luz</span>
               <span class="acc-icon" aria-hidden="true">+</span>
             </summary>
@@ -159,20 +162,21 @@
               <p>
                 Isaac Newton mostrou, com seu famoso <strong>disco colorido</strong>,
                 que a luz branca é composta por várias cores (o espectro visível).
-                Quando o disco gira rápido, as cores se “somam” e vemos branco.
+                Quando o disco gira rápido, as cores se "somam" e vemos branco.
               </p>
               <p>
                 Na prática dos coletores solares, pensamos ao contrário: queremos que
                 a superfície <strong>absorva todas as cores</strong> do espectro, e não
-                que reflita nenhuma. É por isso que o preto — que “soma” todas as cores —
+                que reflita nenhuma. É por isso que o preto — que "soma" todas as cores —
                 é a cor ideal para as placas absorvedoras.
               </p>
-              <!-- Ilustração do Disco de Newton em SVG -->
-              <figure class="newton-disc" aria-label="Representação do Disco de Newton">
-                <svg viewBox="0 0 200 200" role="img" aria-labelledby="titulo-newton">
-                  <title id="titulo-newton">Disco de Newton com 7 cores do espectro</title>
-                  <!-- 7 fatias coloridas -->
-                  <g transform="translate(100,100)">
+
+              <figure class="newton-disc" aria-label="Disco de Newton interativo">
+                <svg id="newtonSvg" viewBox="0 0 200 200" role="img"
+                     tabindex="0"
+                     aria-label="Disco de Newton. Clique ou pressione Enter para acelerar a rotação e ver as cores se misturarem em branco.">
+                  <title id="titulo-newton">Disco de Newton interativo</title>
+                  <g class="newton-slices" transform="translate(100,100)">
                     <path d="M0,0 L80,0 A80,80 0 0,1 61.6,51.4 Z" fill="#ff0000"/>
                     <path d="M0,0 L61.6,51.4 A80,80 0 0,1 0,80 Z" fill="#ff7f00"/>
                     <path d="M0,0 L0,80 A80,80 0 0,1 -61.6,51.4 Z" fill="#ffff00"/>
@@ -182,13 +186,18 @@
                     <path d="M0,0 L0,-80 A80,80 0 0,1 61.6,-51.4 Z" fill="#9400d3"/>
                     <path d="M0,0 L61.6,-51.4 A80,80 0 0,1 80,0 Z" fill="#ff0000"/>
                   </g>
+                  <circle class="newton-overlay" cx="100" cy="100" r="80"/>
                   <circle cx="100" cy="100" r="80" fill="none" stroke="#222" stroke-width="2"/>
                 </svg>
-                <figcaption>As 7 cores do espectro visível — quando absorvidas, viram calor.</figcaption>
+                <figcaption>
+                  <strong>Clique no disco</strong> (ou pressione Enter) para acelerar a rotação
+                  e ver as cores se fundirem em <em>branco</em> — a cor da luz!
+                </figcaption>
               </figure>
             </div>
           </details>
 
+          <!-- CÂMARA ESCURA ANIMADA -->
           <details class="accordion-item">
             <summary>
               <span>📷 A Câmara Escura e o caminho da luz</span>
@@ -203,19 +212,62 @@
               <p>
                 No coletor solar, usamos uma lógica parecida: a luz entra por uma tampa
                 de vidro (refratando ao passar do ar para o vidro), atinge a superfície
-                escura absorvedora e fica “presa” dentro da caixa — o vidro impede que o
+                escura absorvedora e fica "presa" dentro da caixa — o vidro impede que o
                 calor escape facilmente, criando um efeito estufa controlado.
               </p>
-              <p>
-                Assim, a escolha dos materiais (vidro transparente, caixa isolada,
-                superfície escura) é diretamente inspirada nesses fenômenos ópticos.
-              </p>
+
+              <figure class="camera-escura" aria-label="Animação da câmara escura">
+                <svg id="cameraSvg" viewBox="0 0 500 280" role="img"
+                     tabindex="0"
+                     aria-label="Câmara escura. Clique ou pressione Enter para ver a luz atravessar o orifício e formar a imagem invertida.">
+                  <title>Câmara escura animada</title>
+
+                  <rect x="0" y="0" width="140" height="280" fill="#fef3c7"/>
+                  <rect x="140" y="40" width="260" height="200" fill="#1f2937"/>
+                  <rect x="140" y="40" width="260" height="200" fill="none" stroke="#111" stroke-width="3"/>
+
+                  <g class="vela">
+                    <rect x="55" y="180" width="30" height="50" fill="#fbbf24" stroke="#92400e" stroke-width="1.5"/>
+                    <line x1="70" y1="180" x2="70" y2="170" stroke="#111" stroke-width="2"/>
+                    <path d="M70,170 Q62,155 70,140 Q78,155 70,170 Z" fill="#f97316"/>
+                    <path d="M70,165 Q66,157 70,148 Q74,157 70,165 Z" fill="#fde047"/>
+                  </g>
+
+                  <rect x="135" y="40" width="10" height="200" fill="#111"/>
+                  <rect class="orificio" x="138" y="135" width="4" height="10" fill="#fef3c7"/>
+
+                  <g class="raios" opacity="0">
+                    <line class="raio" x1="70" y1="140" x2="140" y2="140"/>
+                    <line class="raio" x1="140" y1="140" x2="400" y2="215"/>
+                    <line class="raio" x1="70" y1="230" x2="140" y2="140"/>
+                    <line class="raio" x1="140" y1="140" x2="400" y2="65"/>
+                  </g>
+
+                  <g class="imagem-projetada" opacity="0">
+                    <rect x="385" y="65" width="30" height="50" fill="#fbbf24" opacity="0.85"/>
+                    <line x1="400" y1="115" x2="400" y2="125" stroke="#111" stroke-width="2"/>
+                    <path d="M400,125 Q392,140 400,155 Q408,140 400,125 Z" fill="#f97316" opacity="0.9"/>
+                    <path d="M400,130 Q396,138 400,147 Q404,138 400,130 Z" fill="#fde047" opacity="0.9"/>
+                  </g>
+
+                  <rect x="395" y="40" width="5" height="200" fill="#4b5563"/>
+
+                  <text x="70" y="25" text-anchor="middle" font-size="12" fill="#92400e" font-weight="bold">Objeto real</text>
+                  <text x="270" y="25" text-anchor="middle" font-size="12" fill="#e5e7eb" font-weight="bold">Interior da câmara</text>
+                  <text x="400" y="265" text-anchor="middle" font-size="11" fill="#e5e7eb">Imagem invertida</text>
+                </svg>
+                <figcaption>
+                  <strong>Clique na câmara</strong> (ou pressione Enter) para ver a luz atravessar o orifício
+                  e formar a <em>imagem invertida</em> no anteparo — o princípio por trás do coletor solar.
+                </figcaption>
+              </figure>
             </div>
           </details>
 
         </div>
       </div>
     </section>
+
 
     <!-- ============ 4. AUTOMAÇÃO ============ -->
     <section id="automacao" class="section" aria-labelledby="titulo-automacao">
