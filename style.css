@@ -1,19 +1,16 @@
-
 /* =========================================================
    VARIÁVEIS GLOBAIS — paleta sol/água
    ========================================================= */
 :root {
-  /* PERSONALIZAR: ajuste as cores se quiser */
-  --cor-sol: #f59e0b;          /* laranja/dourado */
+  --cor-sol: #f59e0b;
   --cor-sol-escura: #b45309;
-  --cor-agua: #0ea5e9;         /* azul água */
+  --cor-agua: #0ea5e9;
   --cor-agua-escura: #0369a1;
-  --cor-fundo: #fdfaf3;        /* bege claro (sol) */
-  --cor-fundo-alt: #e0f2fe;    /* azul claro (água) */
-  --cor-texto: #1f2937;        /* cinza escuro, bom contraste */
+  --cor-fundo: #fdfaf3;
+  --cor-fundo-alt: #e0f2fe;
+  --cor-texto: #1f2937;
   --cor-texto-claro: #ffffff;
   --cor-borda: #cbd5e1;
-
   --fonte-base: 16px;
   --fonte-familia: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --raio: 10px;
@@ -48,13 +45,13 @@ a {
 }
 a:hover, a:focus { color: var(--cor-sol-escura); }
 
-/* Acessibilidade: foco bem visível em TODOS os elementos interativos */
+/* Acessibilidade: foco bem visível */
 a:focus, button:focus, input:focus, summary:focus, [tabindex]:focus {
   outline: 3px solid var(--cor-sol);
   outline-offset: 2px;
 }
 
-/* Classe utilitária para texto oculto visualmente, mas lido por leitores de tela */
+/* Texto oculto visualmente, mas lido por leitores de tela */
 .sr-only {
   position: absolute;
   width: 1px; height: 1px;
@@ -90,6 +87,7 @@ h2 { font-size: 1.75rem; border-bottom: 3px solid var(--cor-sol); padding-bottom
 h3 { font-size: 1.2rem; color: var(--cor-sol-escura); }
 
 p { margin-bottom: 1rem; }
+.lead { font-size: 1.15rem; font-weight: 500; }
 
 /* =========================================================
    CABEÇALHO + MENU
@@ -134,7 +132,7 @@ p { margin-bottom: 1rem; }
   color: var(--cor-agua-escura);
 }
 
-/* Botão hambúrguer (escondido em desktop) */
+/* Botão hambúrguer (mobile) */
 .menu-toggle {
   display: none;
   background: transparent;
@@ -209,7 +207,7 @@ p { margin-bottom: 1rem; }
 }
 
 /* =========================================================
-   CARDS (PROBLEMA)
+   CARDS (PROBLEMA e ACESSIBILIDADE)
    ========================================================= */
 .cards {
   display: grid;
@@ -266,21 +264,112 @@ p { margin-bottom: 1rem; }
 .accordion-content ul { margin-left: 1.2rem; margin-bottom: 1rem; }
 .accordion-content li { margin-bottom: 0.4rem; }
 
-/* Disco de Newton */
+/* =========================================================
+   DISCO DE NEWTON — INTERATIVO
+   ========================================================= */
 .newton-disc {
-  max-width: 220px;
+  max-width: 260px;
   margin: 1.5rem auto;
   text-align: center;
 }
-.newton-disc svg { animation: girar 20s linear infinite; }
+.newton-disc svg {
+  cursor: pointer;
+  animation: girar 20s linear infinite;
+  transition: filter 0.4s ease;
+  border-radius: 50%;
+}
+.newton-disc svg:hover { filter: drop-shadow(0 0 8px var(--cor-sol)); }
+
+/* Círculo branco sobreposto */
+.newton-overlay {
+  fill: #ffffff;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  pointer-events: none;
+}
+
+/* Estado "girando rápido" */
+.newton-disc svg.rapido {
+  animation: girar 0.4s linear infinite;
+}
+.newton-disc svg.rapido .newton-overlay {
+  opacity: 0.92;
+}
+
 .newton-disc figcaption {
   font-size: 0.9rem;
   color: #555;
-  margin-top: 0.5rem;
+  margin-top: 0.75rem;
 }
 @keyframes girar {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
+}
+
+/* =========================================================
+   CÂMARA ESCURA — ANIMADA
+   ========================================================= */
+.camera-escura {
+  max-width: 520px;
+  margin: 1.5rem auto;
+  text-align: center;
+}
+.camera-escura svg {
+  cursor: pointer;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  background: #fef3c7;
+  transition: box-shadow var(--transicao);
+  width: 100%;
+  height: auto;
+}
+.camera-escura svg:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
+
+/* Raios de luz */
+.camera-escura .raios { transition: opacity 0.4s ease; }
+.camera-escura .raio {
+  stroke: #fbbf24;
+  stroke-width: 2.5;
+  stroke-dasharray: 400;
+  stroke-dashoffset: 400;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 3px #fde047);
+}
+
+/* Quando ativada */
+.camera-escura.ativa .raios { opacity: 1; }
+.camera-escura.ativa .raio {
+  animation: desenharRaio 1.2s ease-out forwards;
+}
+.camera-escura.ativa .raio:nth-child(2) { animation-delay: 0.3s; }
+.camera-escura.ativa .raio:nth-child(3) { animation-delay: 0.6s; }
+.camera-escura.ativa .raio:nth-child(4) { animation-delay: 0.9s; }
+
+@keyframes desenharRaio {
+  to { stroke-dashoffset: 0; }
+}
+
+/* Imagem invertida */
+.camera-escura .imagem-projetada {
+  transition: opacity 0.8s ease 1.2s;
+}
+.camera-escura.ativa .imagem-projetada {
+  opacity: 1;
+}
+
+/* Pulso no orifício */
+.camera-escura.ativa .orificio {
+  animation: pulsarOrificio 1.5s ease-in-out infinite;
+}
+@keyframes pulsarOrificio {
+  0%,100% { fill: #fef3c7; }
+  50%     { fill: #fde047; }
+}
+
+.camera-escura figcaption {
+  font-size: 0.9rem;
+  color: #555;
+  margin-top: 0.75rem;
 }
 
 /* =========================================================
@@ -402,6 +491,9 @@ p { margin-bottom: 1rem; }
   font-size: 0.95em;
 }
 
+/* =========================================================
+   EQUIPE — AVATARES DAS 4 INTEGRANTES
+   ========================================================= */
 .team-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -414,11 +506,39 @@ p { margin-bottom: 1rem; }
   border-radius: var(--raio);
   text-align: center;
   box-shadow: var(--sombra);
+  transition: transform var(--transicao);
 }
+.member:hover {
+  transform: translateY(-4px);
+}
+
+/* Fotos dos integrantes — imagens reais */
 .member-photo {
-  font-size: 3rem;
-  margin-bottom: 0.5rem;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 0.75rem;
+  display: block;
+  border: 4px solid var(--cor-agua);
+  box-shadow: var(--sombra);
+  transition: transform var(--transicao), border-color var(--transicao);
 }
+.member-photo:hover {
+  transform: scale(1.05);
+  border-color: var(--cor-sol);
+}
+
+.member h3 {
+  margin-bottom: 0.5rem;
+  color: var(--cor-agua-escura);
+}
+.member p {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 0;
+}
+
 .refs { margin-left: 1.5rem; }
 .refs li { margin-bottom: 0.4rem; }
 
@@ -466,6 +586,7 @@ p { margin-bottom: 1rem; }
 /* =========================================================
    RESPONSIVO — MOBILE FIRST
    ========================================================= */
+
 /* Tablet (≥ 640px) */
 @media (min-width: 640px) {
   h1 { font-size: 2.6rem; }
@@ -481,7 +602,7 @@ p { margin-bottom: 1rem; }
   .team-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
-/* Mobile: esconde menu e mostra hambúrguer */
+/* Mobile: menu hambúrguer */
 @media (max-width: 768px) {
   .menu-toggle { display: block; }
   .main-nav {
