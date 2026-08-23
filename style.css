@@ -280,7 +280,7 @@ p { margin-bottom: 1rem; }
 }
 .newton-disc svg:hover { filter: drop-shadow(0 0 8px var(--cor-sol)); }
 
-/* Círculo branco sobreposto */
+/* Círculo branco sobreposto — invisível por padrão */
 .newton-overlay {
   fill: #ffffff;
   opacity: 0;
@@ -288,7 +288,7 @@ p { margin-bottom: 1rem; }
   pointer-events: none;
 }
 
-/* Estado "girando rápido" */
+/* Estado "girando rápido" — acelera e revela o branco */
 .newton-disc svg.rapido {
   animation: girar 0.4s linear infinite;
 }
@@ -325,7 +325,7 @@ p { margin-bottom: 1rem; }
 }
 .camera-escura svg:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.15); }
 
-/* Raios de luz */
+/* Raios de luz: traço animado */
 .camera-escura .raios { transition: opacity 0.4s ease; }
 .camera-escura .raio {
   stroke: #fbbf24;
@@ -336,7 +336,7 @@ p { margin-bottom: 1rem; }
   filter: drop-shadow(0 0 3px #fde047);
 }
 
-/* Quando ativada */
+/* Quando ativada, os raios "desenham" o caminho da luz */
 .camera-escura.ativa .raios { opacity: 1; }
 .camera-escura.ativa .raio {
   animation: desenharRaio 1.2s ease-out forwards;
@@ -349,7 +349,7 @@ p { margin-bottom: 1rem; }
   to { stroke-dashoffset: 0; }
 }
 
-/* Imagem invertida */
+/* Imagem invertida aparece em fade após os raios */
 .camera-escura .imagem-projetada {
   transition: opacity 0.8s ease 1.2s;
 }
@@ -357,7 +357,7 @@ p { margin-bottom: 1rem; }
   opacity: 1;
 }
 
-/* Pulso no orifício */
+/* Pulso sutil no orifício quando ativo */
 .camera-escura.ativa .orificio {
   animation: pulsarOrificio 1.5s ease-in-out infinite;
 }
